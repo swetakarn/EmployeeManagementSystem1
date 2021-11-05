@@ -1,0 +1,81 @@
+ 
+<html>
+  <div class="container mt-4">
+     <h1 class="display-4 text-center">
+       <i class="fas fa-employee-open text-primary"></i> Add <span class="text-primary">EMPLOYEES </span>Page</h1>
+       <form id="employee-form">
+         <div class="form-group has-error">
+           <label class="col-md-4 control-label" for="name">Name</label>
+           <div class="col-md-5">
+           <input type="text" id="name" name="name" placeholder="Enter Name" class="form-control input-md" required="">
+         </div>
+         </div>
+         <div class="form-group has-error">
+           <label class="col-md-4 control-label" for="age">Age</label>
+           <div class="col-md-5">
+           <input type="text" id="age"  placeholder="Enter age" class="form-control input-md" required="">
+         </div>
+         </div>
+         <div class="form-group has-error">
+           <label class="col-md-4 control-label" for="salary">Salary</label>
+           <div class="col-md-5">
+           <input type="text" id="salary" placeholder="Enter salary" class="form-control input-md" required="">
+         </div>
+         </div>
+           <div class="form-group has-error">
+             <label class="col-md-4 control-label" for="salary">Remarks</label>
+             <div class="col-md-5">
+             <input type="text" id="remarks" placeholder="Enter remarks" class="form-control input-md" required="">
+           </div>
+           </div>
+           <div class="form-group has-error">
+             <label class="col-md-4 control-label" for="salary">Email</label>
+             <div class="col-md-5">
+             <input type="text" id="email" placeholder="Enter Email" class="form-control input-md" required>
+           </div>
+           </div class="col-md-5">
+           
+         <input type="submit" value="Add Employee" class="btn btn-primary btn-block">
+           
+         <input type="button" value="Show List" id="list" onclick="showList()" class="btn btn-primary btn-block"/>
+         <br>
+         <!-- <div class="input-group">
+           <input type="search" id="myInput" class="form-control rounded" placeholder="Search by email" aria-label="Search"
+           aria-describedby="search-addon" onkeyup="searchFun()"/>
+                 </div> -->
+         
+       </form>
+       <table id="myTable" class="invisible">
+        
+         <tbody id="employee-list"></tbody>
+       </table>
+       <script src="js/add.js"></script>
+       <!-- Latest compiled and minified CSS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ 
+ <!-- jQuery library -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
+ <!-- Latest compiled JavaScript -->
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ <script>
+   const searchFun=() => {
+     let filter = document.getElementById('myInput').value.toUpperCase();
+ 
+     let myTable = document.getElementById('myTable');
+     let tr = myTable.getElementsByTagName('tr');
+     for(var i=0; i<tr.length;i++){
+       let td = tr[i].getElementsByTagName('td')[4];
+       if(td){
+         let textValue = td.textContent || td.innerHTML;
+         if(textValue.toLocaleUpperCase().indexOf(filter)> -1){
+           tr[i].style.display = "";
+         }else {
+           tr[i].style.display = "none";
+         }
+       }
+     }
+   }
+ </script>
+   </div>
+   </html>
